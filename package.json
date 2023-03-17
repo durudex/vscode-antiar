@@ -1,0 +1,52 @@
+{
+  "name": "antiar",
+  "displayName": "Antiar",
+  "description": "Rich Antiar language support for Visual Studio Code",
+  "version": "0.0.1",
+  "publisher": "durudex",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/durudex/vscode-antiar"
+  },
+  "bugs": {
+    "url": "https://github.com/durudex/vscode-antiar/issues"
+  },
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "antiar",
+      "aliases": ["Antiar", "antiar"],
+      "extensions": [".antiar"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [
+      {
+        "language": "antiar",
+        "scopeName": "source.antiar",
+        "path": "./syntaxes/antiar.json"
+      },
+      {
+        "injectTo": [
+          "source.js",
+          "source.js.jsx",
+          "source.ts",
+          "source.tsx",
+          "source.vue",
+          "source.svelte"
+        ],
+        "scopeName": "text.antiar.js",
+        "path": "./syntaxes/antiar.js.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.antiar": "antiar"
+        }
+      }
+  ]
+  }
+}

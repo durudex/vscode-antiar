@@ -1,0 +1,57 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Antiar",
+	"patterns": [
+		{"include": "#declaration"},
+		{"include": "#primitive"},
+		{"include": "#bidi"},
+		{"include": "#operator"}
+	],
+	"repository": {
+		"declaration": {
+			"match": "([A-Z][a-zA-Z]+)(\\(\\w*\\))*(\\s+[A-Z][a-zA-Z]+)*",
+			"captures": {
+				"1": {"name": "entity.name.class.antiar"},
+				"2": {
+					"patterns": [
+						{"include": "#primitive"}
+					]
+				},
+				"3": {"name": "entity.name.tag.antiar"}
+			}
+		},
+		"bidi": {
+			"match": "([a-z][a-zA-Z]+)",
+			"name": "variable.name.antiar"
+		},
+		"primitive": {
+			"patterns": [
+				{"include": "#string"},
+				{"include": "#number"},
+				{"include": "#boolean"},
+				{"include": "#null"}
+			]
+		},
+		"string": {
+			"match": "\\'.*?\\'",
+			"name": "string.quoted.single.antiar"
+		},
+		"number": {
+			"match": "\\b([0-9_]+(\\.[0-9_]+)?)\\b",
+			"name": "constant.numeric.antiar"
+		},
+		"boolean": {
+			"match": "\\b(true|false)\\b",
+			"name": "constant.language.boolean.antiar"
+		},
+		"null": {
+			"match": "\\b(null)\\b",
+			"name": "support.type.primitive.antiar"
+		},
+		"operator": {
+			"match": "(>|=|-)",
+			"name": "keyword.operator.antiar"
+		}
+	},
+	"scopeName": "source.antiar"
+}
